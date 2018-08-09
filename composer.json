@@ -1,0 +1,24 @@
+{
+	"name" : "alan/php-mvc-module",
+	"description" : "PHP-MVC-Module is an application library 'Model-View-Controller', simple, extensible, effective, clean and easy to learn. Inspired by the operation of the J2EE servlet.",
+	"type" : "library",
+	"keywords": ["mvc", "controller", "model-view-controller", "module"],
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Alan M.E",
+			"email" : "alanmarquez@outlook.com"
+		}
+	],
+	"support": {
+        "email": "alanmarquez@outlook.com",
+        "issues": "https://github.com/Maxfaider/PHP-MVC-Module/issues",
+        "source": "https://github.com/Maxfaider/PHP-MVC-Module",
+        "docs": "https://github.com/Maxfaider/PHP-MVC-Module/docs"
+    },
+    "autoload": {
+        "psr-4": {
+            "php-mvc-module\\": "src/main/php/",
+            "prophet\\": "src/main/php/"
+        }
+    }
+}
