@@ -1,7 +1,7 @@
 <?php
 namespace prophet\core;
 
-interface Response
+interface GenericResponse
 {
     function write(string $output): void;
     function writeln(string $output): void;

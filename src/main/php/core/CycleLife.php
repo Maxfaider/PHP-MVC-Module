@@ -1,10 +1,9 @@
 <?php
 namespace prophet\core;
 
-interface Filter extends CycleLife
+interface CycleLife
 {
     function init(ParameterConfig $config): void;
     function destroy(): void;
-    function doFilter(GenericRequest $request, GenericResponse $response);
 }
 

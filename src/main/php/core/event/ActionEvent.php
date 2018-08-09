@@ -1,5 +1,5 @@
 <?php
-namespace prophet\core;
+namespace prophet\core\event;
 
 interface ActionEvent
 {

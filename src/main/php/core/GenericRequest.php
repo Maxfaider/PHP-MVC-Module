@@ -1,7 +1,7 @@
 <?php
 namespace prophet\core;
 
-interface Request
+interface GenericRequest
 {
     function getProtocol(): string;
     function setParameter(string $param, $object): void;
@@ -12,8 +12,9 @@ interface Request
     function getCountryCode(): string;
     function getCountry(): string;
     function getCharacterEnconding(): string;
-    function redirect(string $path, Request $request, Response $response): void;
+    function redirect(string $path, GenericRequest $request, GenericResponse $response): void;
     function getServerPort(): string;
     function getRequestedPath(): string;
+    function getApplicationContext(): ApplicationContext;
 }
 

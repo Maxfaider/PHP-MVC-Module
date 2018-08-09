@@ -1,8 +1,10 @@
 <?php
 namespace prophet\core;
 
-interface ApplicationContext
+interface ApplicationContext extends CycleLife
 {
+    function init(ParameterConfig $config): void;
+    function destroy(): void;
     function setAttribute(string $keyName, $object): void;
     function getAttribute(String $keyName);
     function removeAttribute(String $keyName);
