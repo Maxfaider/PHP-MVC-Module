@@ -1,0 +1,48 @@
+{
+	"application": {
+		"company": "Acme",
+		"version": "1.0",
+		"initParameter": {
+		}
+	},
+	"controllers": [
+		{
+			"name": "ServiceController",
+			"description": "some description",
+			"url-pattern": ["/service", "/production/*"],
+			"initParameter": {
+				"location_service": "https://someservice/",
+				"othervar": "some value"
+			}
+		},
+		{
+			"name": "UserRegisterController",
+			"description": "some description",
+			"url-pattern": ["/register/*"],
+			"initParameter": {
+				"nameDB": "some value",
+				"password": "some value"
+			}
+		}
+	],
+	"filters": [
+		{
+			"name": "AuthenticationFilter",
+			"description": "some description",
+			"url-pattern": ["/*"],
+			"initParameter": {
+				"some param1": "some value",
+				"some param2": "some value"
+			}
+		}
+	],
+	"events": [
+		{
+			"__comment": "Por determinar propiedades"
+		}
+	],
+	"error-page": {
+		"page-location": "index/404",
+		"log-location": "/info-modulo.log"
+	}
+}
