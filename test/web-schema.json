@@ -2,24 +2,25 @@
 	"application": {
 		"company": "Acme",
 		"version": "1.0",
+		"event": "nameApplicationContextEvent",
 		"initParameter": {
 		}
 	},
 	"controllers": [
 		{
-			"name": "ServiceController",
+			"classname": "ServiceController",
 			"description": "some description",
-			"url-pattern": ["/service", "/production/*"],
-			"initParameter": {
+			"url-pattern": ["/service/*", "/production/*"],
+			"initparameter": {
 				"location_service": "https://someservice/",
 				"othervar": "some value"
 			}
 		},
 		{
-			"name": "UserRegisterController",
+			"classname": "UserRegisterController",
 			"description": "some description",
 			"url-pattern": ["/register/*"],
-			"initParameter": {
+			"initparameter": {
 				"nameDB": "some value",
 				"password": "some value"
 			}
@@ -27,10 +28,10 @@
 	],
 	"filters": [
 		{
-			"name": "AuthenticationFilter",
+			"classname": "AuthenticationFilter",
 			"description": "some description",
 			"url-pattern": ["/*"],
-			"initParameter": {
+			"initparameter": {
 				"some param1": "some value",
 				"some param2": "some value"
 			}
