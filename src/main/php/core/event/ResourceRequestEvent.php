@@ -6,5 +6,6 @@ use prophet\core\GenericRequest;
 interface ResourceRequestEvent extends ActionEvent
 {
     function contextRequest(GenericRequest $request): void;
+    function contextDestroyed(GenericController $controller);
 }
 

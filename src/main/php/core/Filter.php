@@ -9,6 +9,6 @@ abstract class Filter extends CycleLife
     function destroy(): void 
     {}
     
-    abstract  function doFilter(GenericRequest $request, GenericResponse $response): void;
+    abstract function doFilter(GenericRequest $request, GenericResponse $response): void;
 }
 

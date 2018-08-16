@@ -3,10 +3,8 @@ namespace prophet\core;
 
 use prophet\core\event\ActionEvent;
 
-interface ApplicationContext extends CycleLife
+interface ApplicationContext
 {
-    function init(ParameterConfig $config): void;
-    function destroy(): void;
     function setAttribute(string $keyName, $object): void;
     function getAttribute(String $keyName);
     function removeAttribute(String $keyName);
