@@ -5,13 +5,18 @@ use prophet\core\ApplicationContext;
 use prophet\core\GenericController;
 use prophet\core\Filter;
 use prophet\core\event\ActionEvent;
+use prophet\core\event\ApplicationContextEvent;
 
 class ApplicationContextBuild
 {
-    private $application;
     private $controllers;
     private $filters;
     private $actionEvents;
+    private $applicationContextEvent;
+    
+    function __construct(ApplicationContextEvent $applicationContextEvent) {
+        $this->applicationContextEvent = $applicationContextEvent;
+    }
     
     function setControllers(array $controllers) {
         $this->controllers = $controllers;
@@ -29,19 +34,25 @@ class ApplicationContextBuild
     }
     
     function build(): ApplicationContext {
-        return new class($this->controllers, $this->filters, $this->actionEvents)
+        return new class($this->controllers, $this->filters, $this->actionEvents, $this->applicationContextEvent)
             implements ApplicationContext {
             
             private $attributes;
             private $controllers;
             private $filters;
             private $actionEvents;
+            private $applicationContextEvent;
             
-            function __construct(array $controllers, array $filters, array $actionEvents) {
+            function __construct(array $controllers, array $filters, array $actionEvents, 
+                ApplicationContextEvent $applicationContextEvent) {
+                
                 $this->attributes = new \Ds\Map();
                 $this->controllers = $controllers;
                 $this->filters = $filters;
                 $this->actionEvents = $actionEvents;
+                $this->applicationContextEvent = $applicationContextEvent;
+                //trigger ApplicationContextEvent
+                $this->applicationContextEvent->contextInitialized($this);
             }
             function setAttribute(string $keyName, $object): void {
                 $this->attributes->put($keyName, $object);
@@ -75,6 +86,10 @@ class ApplicationContextBuild
                     "port" => $_SERVER['SERVER_PORT'],
                     "admin" => $_SERVER['SERVER_ADMIN']
                 ];
+            }
+            function __destruct() {
+                //trigger ApplicationContextEvent
+                $this->applicationContextEvent->contextDestroyed($this);
             }
         };
     }
