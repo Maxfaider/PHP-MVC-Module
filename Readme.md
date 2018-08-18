@@ -10,3 +10,11 @@ PHP-MVC-Module, has a self-explanatory structure and optional Composer integrati
 - Implementation of filters for resource requests.
 - Implementation of events for certain processes of the application.
 - Provides an ApplicationContext Object to communicate with other objects in the execution of the application (Similar to ServletContext).
+
+## Needed extensions:
+
+Data Structure: http://pecl.php.net/package/ds
+-	Source: http://github.com/php-ds
+
+APCu - APC User Cache: http://pecl.php.net/package/APCu
+-	Source: https://github.com/krakjoe/apcu
