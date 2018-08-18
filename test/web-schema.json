@@ -2,9 +2,7 @@
 	"application": {
 		"company": "Acme",
 		"version": "1.0",
-		"event": "nameApplicationContextEvent",
-		"initParameter": {
-		}
+		"event": "nameApplicationContextEvent"
 	},
 	"controllers": [
 		{
@@ -39,7 +37,18 @@
 	],
 	"events": [
 		{
-			"__comment": "Por determinar propiedades"
+			"ApplicationContextEvent": {
+				"classname": "ApplicationContextEventImpl"
+			},
+			"ControllerContextEvent": {
+				"classname": "ControllerContextEventImpl"
+			},
+			"ResourceRequestEvent": {
+				"classname": "ResourceRequestEventImpl"
+			},
+			"NewSessionEvent": {
+				"classname": "NewSessionEventImpl"
+			}
 		}
 	],
 	"error-page": {
