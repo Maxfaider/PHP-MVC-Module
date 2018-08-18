@@ -8,7 +8,7 @@ interface ApplicationContext
     function setAttribute(string $keyName, $object): void;
     function getAttribute(String $keyName);
     function removeAttribute(String $keyName);
-    function getAttibuteNames(): array;
+    function getAttributeNames(): array;
     function getController(string $name): GenericController;
     function getFilter(string $name): Filter;
     function getActionEvent(string $name): ActionEvent;
