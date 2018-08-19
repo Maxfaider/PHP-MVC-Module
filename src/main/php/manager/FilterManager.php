@@ -7,12 +7,12 @@ class FilterManager
 {
     private $filtersNodes = [];
     
-    function addFilter(Filter $filter, string $classname, array $urlPatterns, string $description) {
+    function addFilter(Filter $filter, string $classname, array $urlPatterns, string $description="") {
         $filtersNodes[] = new Node($filter, $classname, $urlPatterns, $description);
     }
     
     function interceptRequest(GenericRequest $request, GenericResponse $response) {
-        foreach ($filtersNodes as $node) {
+        foreach ($this->filtersNodes as $node) {
             $is_uri_valid = MappingPattern::checkURI($node->getPatterns(), $request.getRequestedPath());
             if($is_uri_valid) 
                 invokeFilter($node->getObject(), $request, $response);
