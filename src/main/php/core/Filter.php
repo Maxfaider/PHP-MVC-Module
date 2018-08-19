@@ -1,7 +1,7 @@
 <?php
 namespace prophet\core;
 
-abstract class Filter extends CycleLife
+abstract class Filter implements CycleLife 
 {
     function init(ParameterConfig $config): void 
     {}

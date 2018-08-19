@@ -1,5 +1,5 @@
 <?php
-namespace prophetHttp;
+namespace prophet\http;
 
 use prophet\core\GenericRequest;
 use prophet\core\GenericResponse;
